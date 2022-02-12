@@ -1,0 +1,41 @@
+-- CRIANDO UM BANCO DE DADOS
+CREATE DATABASE db_escola;
+
+-- SELECIONANDO BANCO DE DADOS PARA UTILZAR 
+USE db_escola;
+
+-- CRIANDO TABELAS DENTRO DO MEU BANCO DE DADOS SELECIONADO
+CREATE TABLE alunos (
+ra INT NOT NULL AUTO_INCREMENT,
+nome_aluno VARCHAR(255) NOT NULL,
+cpf VARCHAR(255) NOT NULL,
+matricula INT NOT NULL,
+nota FLOAT NOT NULL,
+PRIMARY KEY (ra)
+);
+
+-- inserindo dados no banco de dados db_escola
+INSERT INTO alunos(nome_aluno, cpf, matricula, nota)
+VALUES
+("Gabriel", "122.122.122.12", 1, 7.5),
+("Ana", "123.122.122.12", 2, 8.5),
+("Maria", "124.122.122.12", 3, 3),
+("Lucas", "152.122.122.12", 4, 1),
+("Leticia", "622.122.122.12", 5, 10),
+("Rafael", "172.122.122.12", 6, 2),
+("Miguel", "182.122.122.12", 7, 4),
+("Geovanna", "182.122.122.12", 7, 6);
+
+-- fazendo os selects na tabela db_escola trazendo valores das notas maiores que 7
+SELECT  nome_aluno AS `Nome`,ra AS `Resgistro do Aluno`,nota
+FROM alunos
+WHERE nota >= 7;
+
+-- fazendo os selects na tabela db_escole trazendo valores das notas menores que 7
+SELECT  nome_aluno AS `Nome`,ra AS `Resgistro do Aluno`,nota
+FROM alunos
+WHERE nota <= 7;
+
+-- alterando um dado na tabela alunos.
+ALTER TABLE alunos CHANGE COLUMN ra  ra  INT NOT NULL; -- meu primary key passa a ter que ser definido pelo usuario.
+SELECT * FROM alunos;
